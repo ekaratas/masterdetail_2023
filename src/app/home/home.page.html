@@ -7,14 +7,32 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-list>
+  <ion-item>
+    <ion-input [(ngModel)]="ad"  label="Ad:" labelPlacement="floating"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input [(ngModel)]="soyad" label="Soyad:" labelPlacement="floating"></ion-input>
+  </ion-item>
+</ion-list>
+<br>
+<ion-alert
+  trigger="alert-goster"
+  header="Dikkat"
+  message="{{ad}} {{soyad}}"
+  [buttons]="['Tamam']"
+></ion-alert>
+<ion-button id="alert-goster" expand="full" color="warning">
+Tıkla</ion-button>
 
+<ion-button expand="full" [routerLink]="['/detay']" color="danger">
+  Detay sayfası
+</ion-button>
+<ion-button (click)="detayaGit()" expand="full" color="success">
+  Detay'a Function ile git
+</ion-button>
+<ion-toast trigger="alert-goster" message="Bu mesaj 5 saniye sonra kapanacak" [duration]="5000"></ion-toast>
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <strong>Merhaba {{ad}} {{soyad}}</strong>
+   </div>
 </ion-content>
